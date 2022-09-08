@@ -27,7 +27,7 @@ const getSettingsForStyles = (withModules = false) => {
 }
 
 module.exports = {
-    entry: path.join(srcPath, "index.js"),
+    entry: path.join(srcPath, "index.tsx"),
     target: !isProd ? "web" : "browserslist",
     output: {
         path: buildPath,
@@ -56,8 +56,17 @@ module.exports = {
                 use: getSettingsForStyles()
             },
             {
-                test: /\.jsx?$/,
+                test: /\.[tj]sx?$/,
                 use: "babel-loader"
+            },
+            {
+                test: /\.(png|svg|jpg)$/,
+                type: 'asset',
+                parser: {
+                    dataUrlCondition: {
+                        maxSize: 10 * 1024
+                    }
+                }
             }
         ]
     },

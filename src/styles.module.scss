@@ -4,3 +4,11 @@ $color: red;
     color: $color;
     transform: scale(0.5);
 }
+
+.picture {
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 10px;
+    height: 15px;
+}
