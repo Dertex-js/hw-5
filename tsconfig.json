@@ -2,7 +2,12 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "components": ["components"]
+      "components": ["components"],
+      "assets": ["assets"],
+      "config": ["config"],
+      "scss": ["scss"],
+      "store": ["store"],
+      "utils": ["utils"]
     },
     "noEmit": true,
       "allowJs": true,
