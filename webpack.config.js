@@ -2,6 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TsCheckerPlugin = require('fork-ts-checker-webpack-plugin');
 
 const buildPath = path.resolve(__dirname, "dist");
 const srcPath = path.resolve(__dirname, "src");
@@ -29,6 +30,7 @@ const getSettingsForStyles = (withModules = false) => {
 module.exports = {
     entry: path.join(srcPath, "index.tsx"),
     target: !isProd ? "web" : "browserslist",
+    devtool: isProd ? "hidden-source-map" : "eval-source-map",
     output: {
         path: buildPath,
         filename: "bundle.js"
@@ -42,7 +44,8 @@ module.exports = {
             {
                 filename: '[name]-[hash].css'
             }
-        )
+        ),
+        new TsCheckerPlugin()
     ].filter(Boolean),
     module: {
         rules: [
@@ -56,7 +59,7 @@ module.exports = {
                 use: getSettingsForStyles()
             },
             {
-                test: /\.[tj]sx?$/,
+                test: /\.([jt])sx?$/,
                 use: "babel-loader"
             },
             {
@@ -69,6 +72,12 @@ module.exports = {
                 }
             }
         ]
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.jsx'],
+        alias: {
+            components: path.join(srcPath, 'components')
+        }
     },
     devServer: {
         host: "127.0.0.1",
