@@ -1,25 +1,19 @@
-import * as React from "react";
-import { render } from "react-dom";
-import 'regenerator-runtime';
+import React from "react";
 
-import styles from "./styles.module.scss";
+import "./index.scss";
+import "config/configureMobX";
+import ReactDOM from "react-dom/client";
+import * as Router from "react-router-dom";
 
-import logo from "./input-search.png";
+import App from "./App";
 
-import Button from "components/Button";
-
-
-render(
-    <div className={styles.title}>
-        React app1222211
-        <div className={styles.picture} style={{
-            backgroundImage: `url(${logo})`
-        }} />
-        <Button object={null}>Кнопка</Button>
-    </div>,
-    document.getElementById("root")
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement
 );
-
-if (module.hot) {
-    module.hot.accept();
-}
+root.render(
+  <React.StrictMode>
+    <Router.BrowserRouter>
+      <App />
+    </Router.BrowserRouter>
+  </React.StrictMode>
+);
