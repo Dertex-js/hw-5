@@ -28,7 +28,13 @@ const CoinPage = () => {
           subtitle={coinPageStore.data.symbol.toUpperCase()}
         />
       )}
-      <CoinInfo />
+      {coinPageStore.data && (
+        <CoinInfo
+          price={coinPageStore.data.marketData.currentPrice.usd}
+          priceChangeValue={coinPageStore.data.marketData.priceChange24h}
+          priceChangePercent={coinPageStore.data.marketData.priceChangePercentage24h}
+        />
+        )}
     </div>
   );
 };

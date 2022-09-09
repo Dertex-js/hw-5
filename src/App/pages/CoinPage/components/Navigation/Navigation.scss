@@ -3,9 +3,26 @@
   align-items: center;
   padding-right: 16px;
   padding-left: 16px;
+
+  &__link {
+    width: 10px;
+    height: 15px;
+    margin-right: 17px;
+  }
 }
 
 .nav-info {
   display: flex;
   align-items: center;
+  margin-right: 12px;
+
+  &__ico {
+    width: 24px;
+    height: 24px;
+    margin-right: 8px;
+  }
+
+  &__name_title {
+    margin-right: 4px;
+  }
 }

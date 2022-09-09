@@ -43,12 +43,12 @@ const Market = () => {
       </section>
       <nav className="categories">
         <ul className="categories__list">
-          <li className="categories__list-item">
+          <li className="categories__list-item categories__list-item_active">
             <Link to={"#"}>
               <div className="categories__link">All</div>
             </Link>
           </li>
-          <li className="categories__list-item categories__list-item_active">
+          <li className="categories__list-item">
             <Link to={"#"}>
               <div className="categories__link">Gainer</div>
             </Link>

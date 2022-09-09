@@ -1,5 +1,5 @@
 import config from "config/config";
-import { coinPageItemApi, coinPageItemModel } from "store/models/coinPage";
+import { coinPageItemApi, coinPageItemModel, normalizeCoinPageItems } from "store/models/coinPage";
 import axios from "axios";
 import { makeAutoObservable } from "mobx";
 
@@ -17,13 +17,14 @@ export default class CoinPageStore {
         url: config.getOne(id),
       })
     ).data;
-
-    this._list = response;
+    this._list = normalizeCoinPageItems(response);
   }
 
   get data() {
     return this._list;
   }
 
-  destroy() {}
+  destroy() {
+    this._list = null;
+  }
 }
