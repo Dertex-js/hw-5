@@ -43,6 +43,7 @@
     "last 2 chrome versions"
   ],
   "dependencies": {
+    "@types/react-sparklines": "^1.7.2",
     "axios": "^0.27.2",
     "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
@@ -51,6 +52,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "6",
+    "react-sparklines": "^1.7.0",
     "regenerator-runtime": "^0.13.9"
   }
 }

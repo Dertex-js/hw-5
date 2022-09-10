@@ -1,9 +1,16 @@
+import {
+  marketItemsSparkLineApi,
+  marketItemsSparkLineModel,
+  normalizeMarketItemsSparkLine
+} from "./marketItemsSparkLine";
+
 export type marketItemsApi = {
   id: string;
   name: string;
   image: string;
   symbol: string;
   current_price: string;
+  sparkline_in_7d: marketItemsSparkLineApi;
 };
 
 export type marketItemsModel = {
@@ -12,6 +19,7 @@ export type marketItemsModel = {
   image: string;
   symbol: string;
   currentPrice: string;
+  sparklineIn7d: marketItemsSparkLineModel;
 };
 
 export const normalizeMarketItems = (
@@ -22,4 +30,5 @@ export const normalizeMarketItems = (
   image: from.image,
   symbol: from.symbol,
   currentPrice: from.current_price,
+  sparklineIn7d: normalizeMarketItemsSparkLine(from.sparkline_in_7d),
 });

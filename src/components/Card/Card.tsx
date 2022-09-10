@@ -26,7 +26,7 @@ const Card: React.FC<CardProps> = ({
           <div className="coin-name-text__descr">{subtitle}</div>
         </div>
       </div>
-      {content}
+      <div className="coin__graph">{content}</div>
     </div>
   );
 };

@@ -21,9 +21,8 @@ const CoinInfo: FC<CoinInfoProps> = ({price, priceChangeValue, priceChangePercen
 
   return <section className="coin-info">
     <div className="coin-info__price">${price}</div>
-    <div className="coin-info__change">
-      <div className="coin-info__change_value">{symbolPrice()}{value}</div>
-      <div className="coin-info__change_percent">({percent}%)</div>
+    <div className="coin-info__change grow">
+      {symbolPrice()}{value} ({percent}%)
     </div>
   </section>;
 };

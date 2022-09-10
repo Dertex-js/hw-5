@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./Market.scss";
-
+import {Sparklines, SparklinesLine} from 'react-sparklines';
 import dropDownIco from "assets/dropdown-ico.svg";
 import searchLogo from "assets/search.svg";
 import Card from "components/Card";
@@ -74,7 +74,18 @@ const Market = () => {
                 image={coin.image}
                 title={coin.name}
                 subtitle={coin.symbol.toUpperCase()}
-              />
+                content={
+                  <Sparklines
+                      data={coin.sparklineIn7d.price}
+                      height={120}
+                  >
+                    <SparklinesLine
+                        color="#21BF73"
+                        style={{ fill: "none" }}
+                    />
+                  </Sparklines>
+                }
+              ></Card>
             </Link>
           ))}
         </InfiniteScroll>

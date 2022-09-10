@@ -1,11 +1,18 @@
 import config from "config/config";
 import { coinPageItemApi, coinPageItemModel, normalizeCoinPageItems } from "store/models/coinPage";
 import axios from "axios";
-import { makeAutoObservable } from "mobx";
+import {action, computed, makeObservable, observable} from "mobx";
+import {ILocalStore} from "../../utils/useLocalStore";
 
-export default class CoinPageStore {
+type PrivateFields = "_list";
+
+export default class CoinPageStore implements ILocalStore {
   constructor() {
-    makeAutoObservable(this);
+    makeObservable<CoinPageStore, PrivateFields>(this, {
+      _list: observable,
+      data: computed,
+      requestCoin: action,
+    });
   }
 
   private _list: coinPageItemModel | null = null;

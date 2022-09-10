@@ -18,7 +18,6 @@ import {
   makeObservable,
   observable,
   runInAction,
-  toJS,
 } from "mobx";
 
 type PrivateFields = "_list";
@@ -36,7 +35,7 @@ export default class MarketStore implements ILocalStore {
   private _list: CollectionModel<string, marketItemsModel> =
     getInitialCollectionModel();
 
-  page: number = 0;
+  page: number = 1;
 
   merge(
     destination: CollectionModel<any, any>,
@@ -59,7 +58,6 @@ export default class MarketStore implements ILocalStore {
   }
 
   async requestCoins() {
-    this.page++;
     const response: marketItemsApi[] = (
       await axios.get(coinsRequest.url(this.page))
     ).data;
@@ -74,8 +72,7 @@ export default class MarketStore implements ILocalStore {
           this._list,
           normalizeCollection(list, (listItem) => listItem.id)
         );
-        // eslint-disable-next-line no-console
-        console.log(toJS(this._list));
+        this.page++;
       } catch (e) {
         // eslint-disable-next-line no-console
         console.log(e);
