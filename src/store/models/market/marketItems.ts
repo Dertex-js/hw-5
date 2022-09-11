@@ -9,8 +9,9 @@ export type marketItemsApi = {
   name: string;
   image: string;
   symbol: string;
-  current_price: string;
+  current_price: number;
   sparkline_in_7d: marketItemsSparkLineApi;
+  price_change_percentage_24h: number;
 };
 
 export type marketItemsModel = {
@@ -18,8 +19,9 @@ export type marketItemsModel = {
   name: string;
   image: string;
   symbol: string;
-  currentPrice: string;
+  currentPrice: number;
   sparklineIn7d: marketItemsSparkLineModel;
+  priceChangePercentage24h: number;
 };
 
 export const normalizeMarketItems = (
@@ -31,4 +33,5 @@ export const normalizeMarketItems = (
   symbol: from.symbol,
   currentPrice: from.current_price,
   sparklineIn7d: normalizeMarketItemsSparkLine(from.sparkline_in_7d),
+  priceChangePercentage24h: from.price_change_percentage_24h,
 });

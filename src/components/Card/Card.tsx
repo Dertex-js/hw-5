@@ -6,16 +6,20 @@ export type CardProps = {
   image: string;
   title: React.ReactNode;
   subtitle: React.ReactNode;
-  content?: React.ReactNode;
+  price?: React.ReactNode;
+  pricePerCent?: React.ReactNode;
   onClick?: React.MouseEventHandler;
+  graph?: React.ReactNode;
 };
 
 const Card: React.FC<CardProps> = ({
   image,
   title,
   subtitle,
-  content,
+  price,
+  pricePerCent,
   onClick,
+  graph,
 }) => {
   return (
     <div className="coin" onClick={onClick}>
@@ -26,7 +30,11 @@ const Card: React.FC<CardProps> = ({
           <div className="coin-name-text__descr">{subtitle}</div>
         </div>
       </div>
-      <div className="coin__graph">{content}</div>
+      <div className="coin__graph">{graph}</div>
+      <div className="coin-price">
+        <div className="coin-price__value">${price}</div>
+      <div className="coin-price__change">{pricePerCent}%</div>
+    </div>
     </div>
   );
 };

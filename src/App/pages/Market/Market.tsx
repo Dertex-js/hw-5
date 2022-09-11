@@ -37,7 +37,7 @@ const Market = () => {
       <section className="filter">
         <h1 className="filter__title bold">Coins</h1>
         <div className="dropdown" role="button" tabIndex={0}>
-          Market- INR
+          Market- USD
           <img className="dropdown__ico" src={dropDownIco} alt="Drop down" />
         </div>
       </section>
@@ -74,9 +74,14 @@ const Market = () => {
                 image={coin.image}
                 title={coin.name}
                 subtitle={coin.symbol.toUpperCase()}
-                content={
+                price={coin.currentPrice.toFixed(2)}
+                pricePerCent={coin.priceChangePercentage24h.toFixed(2)}
+                graph={
                   <Sparklines
-                      data={coin.sparklineIn7d.price}
+                      data={coin.sparklineIn7d.price.slice(
+                          coin.sparklineIn7d.price.length/7*6 + 1,
+                          coin.sparklineIn7d.price.length - 1
+                      )}
                       height={120}
                   >
                     <SparklinesLine
