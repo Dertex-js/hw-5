@@ -1,13 +1,13 @@
 export type marketItemsSparkLineApi = {
-    price: number[];
-}
+  price: number[];
+};
 
 export type marketItemsSparkLineModel = {
-    price: number[];
-}
+  price: number[];
+};
 
 export const normalizeMarketItemsSparkLine = (
-    from: marketItemsSparkLineApi
+  from: marketItemsSparkLineApi
 ): marketItemsSparkLineModel => ({
-    price: from.price,
-})
+  price: from.price,
+});

@@ -1,7 +1,7 @@
 @import "src/scss/normalize";
 @import "src/scss/colors";
 
-.wrapper-search {
+.wrapperSearch {
   max-width: 375px;
   padding-left: 16px;
   padding-right: 16px;
@@ -21,7 +21,7 @@
   }
 }
 
-.search-input {
+.searchInput {
   display: flex;
   align-items: center;
   width: 78.43%;
@@ -46,4 +46,9 @@
       color: $mild_grey;
     }
   }
+}
+
+.coins__list a:not(:last-child) {
+  display: block;
+  margin-bottom: 8px;
 }

@@ -8,7 +8,7 @@ import SearchStore from "store/SearchStore";
 import { useLocalStore } from "utils/useLocalStore";
 import { observer } from "mobx-react-lite";
 import { Link, useSearchParams } from "react-router-dom";
-import "./Search.scss";
+import style from "./Search.module.scss";
 
 const Search = () => {
   const searchStore = useLocalStore(() => new SearchStore());
@@ -26,23 +26,23 @@ const Search = () => {
   };
 
   return (
-    <div className="wrapper-search">
-      <section className="search">
-        <div className="search-input">
-          <img className="search-input__ico" src={Logo} alt="Search" />
+    <div className={style.wrapperSearch}>
+      <section className={style.search}>
+        <div className={style.searchInput}>
+          <img className={style.searchInput__ico} src={Logo} alt="Search" />
           <input
-            className="search-input__input"
+            className={style.searchInput__input}
             type="text"
             placeholder="Search Cryptocurrency"
             onChange={handleSearch}
             value={searchTerm}
           />
         </div>
-        <Link to={"/"} className="search__btn">
+        <Link to={"/"} className={style.search__btn}>
           <Button />
         </Link>
       </section>
-      <section className="coins__list">
+      <section className={style.coins__list}>
         {searchStore.data.map((coin: searchItemsModel) => (
           <Link to={`/coin/${coin.id}`} key={coin.id}>
             <Card

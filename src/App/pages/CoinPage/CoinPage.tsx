@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import CoinPageStore from "store/CoinPageStore";
 import { useLocalStore } from "utils/useLocalStore";
-import "./CoinPage.scss";
+import style from "./CoinPage.module.scss";
 import { observer } from "mobx-react-lite";
 import { useParams } from "react-router-dom";
 
@@ -19,7 +19,7 @@ const CoinPage = () => {
   }, [id, coinPageStore]);
 
   return (
-    <div className="wrapper-coin-page">
+    <div className={style.wrapperCoinPage}>
       {coinPageStore.data && (
         <Navigation
           key={coinPageStore.data.id}
@@ -32,9 +32,11 @@ const CoinPage = () => {
         <CoinInfo
           price={coinPageStore.data.marketData.currentPrice.usd}
           priceChangeValue={coinPageStore.data.marketData.priceChange24h}
-          priceChangePercent={coinPageStore.data.marketData.priceChangePercentage24h}
+          priceChangePercent={
+            coinPageStore.data.marketData.priceChangePercentage24h
+          }
         />
-        )}
+      )}
     </div>
   );
 };

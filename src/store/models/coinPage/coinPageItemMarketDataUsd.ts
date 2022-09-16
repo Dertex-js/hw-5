@@ -1,7 +1,7 @@
 export type coinPageItemMarketDataUsdApi = {
-    usd: string;
-}
+  usd: string;
+};
 
 export type coinPageItemMarketDataUsdModel = {
-    usd: string;
-}
+  usd: string;
+};

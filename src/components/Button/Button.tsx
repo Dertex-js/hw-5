@@ -23,7 +23,7 @@ const Button: React.FC<ButtonProps> = ({
   const [isDisabled, setIsDisabled] = useState(props.disabled);
 
   const className: string = classNames(
-    `button`,
+    "button",
     `button_color-${color}`,
     props.className,
     { button_disabled: loading || isDisabled }

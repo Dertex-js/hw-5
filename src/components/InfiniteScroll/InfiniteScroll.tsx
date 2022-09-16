@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
+import style from "./InfiniteScroll.module.scss";
 
-type Props = {
+type Props = React.PropsWithChildren <{
   onBottomHit: () => void;
-  children: any;
-};
+}>;
 
 function isBottom(ref: React.RefObject<HTMLDivElement>) {
   if (!ref.current) {
@@ -34,7 +34,7 @@ const InfiniteScroll: React.FC<Props> = ({ onBottomHit, children }) => {
   }, [onBottomHit]);
 
   return (
-    <div className="coins__list" ref={contentRef}>
+    <div className={style.coins__list} ref={contentRef}>
       {children}
     </div>
   );

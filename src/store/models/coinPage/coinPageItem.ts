@@ -5,7 +5,7 @@ import {
 import {
   coinPageItemMarketDataApi,
   coinPageItemMarketDataModel,
-  normalizeCoinPageItemsMarketData
+  normalizeCoinPageItemsMarketData,
 } from "./coinPageItemMarketData";
 
 export type coinPageItemApi = {
@@ -13,7 +13,7 @@ export type coinPageItemApi = {
   name: string;
   symbol: string;
   image: coinPageItemImageApi;
-  market_data: coinPageItemMarketDataApi
+  market_data: coinPageItemMarketDataApi;
 };
 
 export type coinPageItemModel = {
@@ -25,11 +25,11 @@ export type coinPageItemModel = {
 };
 
 export const normalizeCoinPageItems = (
-    from: coinPageItemApi
+  from: coinPageItemApi
 ): coinPageItemModel => ({
   id: from.id,
   name: from.name,
   symbol: from.symbol,
   image: from.image,
   marketData: normalizeCoinPageItemsMarketData(from.market_data),
-})
+});

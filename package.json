@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --mode=development",
     "build": "cross-env NODE_ENV=production webpack --mode=production",
-    "ts-checker": "tsc --skipLibCheck --noEmit --project tsconfig.json"
+    "ts-checker": "tsc --skipLibCheck --noEmit --project tsconfig.json",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix"
   },
   "devDependencies": {
     "@babel/cli": "^7.18.10",
@@ -21,10 +23,16 @@
     "@types/react": "^18.0.18",
     "@types/react-dom": "^18.0.6",
     "@types/webpack-env": "^1.18.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
     "autoprefixer": "^10.4.8",
     "babel-loader": "^8.2.5",
     "babel-preset-mobx": "^2.0.0",
     "css-loader": "^6.7.1",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-react": "^7.31.8",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.6.1",

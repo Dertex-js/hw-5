@@ -1,8 +1,12 @@
 import config from "config/config";
-import { coinPageItemApi, coinPageItemModel, normalizeCoinPageItems } from "store/models/coinPage";
+import {
+  coinPageItemApi,
+  coinPageItemModel,
+  normalizeCoinPageItems,
+} from "store/models/coinPage";
 import axios from "axios";
-import {action, computed, makeObservable, observable} from "mobx";
-import {ILocalStore} from "../../utils/useLocalStore";
+import { action, computed, makeObservable, observable } from "mobx";
+import { ILocalStore } from "../../utils/useLocalStore";
 
 type PrivateFields = "_list";
 

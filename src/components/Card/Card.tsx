@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./Card.scss";
+import style from "./Card.module.scss";
 
 export type CardProps = {
   image: string;
@@ -22,19 +22,19 @@ const Card: React.FC<CardProps> = ({
   graph,
 }) => {
   return (
-    <div className="coin" onClick={onClick}>
-      <div className="coin-name">
-        <img className="coin-name__img" src={image} alt="coin" />
-        <div className="coin-name-text">
-          <div className="coin-name-text__title">{title}</div>
-          <div className="coin-name-text__descr">{subtitle}</div>
+    <div className={style.coin} onClick={onClick}>
+      <div className={style.coinName}>
+        <img className={style.coinName__img} src={image} alt="coin" />
+        <div className={style.coinNameText}>
+          <div className={style.coinNameText__title}>{title}</div>
+          <div className={style.coinNameText__descr}>{subtitle}</div>
         </div>
       </div>
-      <div className="coin__graph">{graph}</div>
-      <div className="coin-price">
-        <div className="coin-price__value">${price}</div>
-      <div className="coin-price__change">{pricePerCent}%</div>
-    </div>
+      <div className={style.coin__graph}>{graph}</div>
+      <div className={style.coinPrice}>
+        <div className={style.coinPrice__value}>${price}</div>
+        <div className={style.coinPrice__change}>{pricePerCent}%</div>
+      </div>
     </div>
   );
 };

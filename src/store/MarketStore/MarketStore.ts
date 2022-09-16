@@ -35,7 +35,7 @@ export default class MarketStore implements ILocalStore {
   private _list: CollectionModel<string, marketItemsModel> =
     getInitialCollectionModel();
 
-  page: number = 1;
+  page = 1;
 
   merge(
     destination: CollectionModel<any, any>,

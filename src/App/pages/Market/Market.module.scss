@@ -1,7 +1,7 @@
 @import "src/scss/normalize";
 @import "src/scss/colors";
 
-.wrapper-market {
+.wrapperMarket {
   max-width: 375px;
   padding-left: 16px;
   padding-right: 16px;
@@ -15,6 +15,8 @@
   margin-bottom: 30px;
   //   align-items: center;
 
+  &__text {}
+
   &__info {
     font-size: 20px;
   }
@@ -25,6 +27,8 @@
 
     margin-top: 5px;
   }
+
+  &__search {}
 }
 
 .filter {
@@ -49,13 +53,15 @@
     max-width: 265px;
   }
 
-  &__list-item {
+  &__listItem {
     &_active {
       color: $active-color;
       text-decoration: underline 3px;
       text-underline-offset: 7px;
     }
   }
+
+  &__link {}
 }
 
 .dropdown {
@@ -80,9 +86,4 @@
     width: 7px;
     height: 4px;
   }
-}
-
-.coins__list a:not(:last-child) {
-  display: block;
-  margin-bottom: 8px;
 }

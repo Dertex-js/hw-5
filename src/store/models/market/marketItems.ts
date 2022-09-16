@@ -1,7 +1,7 @@
 import {
   marketItemsSparkLineApi,
   marketItemsSparkLineModel,
-  normalizeMarketItemsSparkLine
+  normalizeMarketItemsSparkLine,
 } from "./marketItemsSparkLine";
 
 export type marketItemsApi = {
