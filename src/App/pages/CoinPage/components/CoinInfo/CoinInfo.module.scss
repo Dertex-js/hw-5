@@ -1,0 +1,24 @@
+@import "scss/colors.scss";
+
+.coinInfo {
+  display: flex;
+  align-items: flex-end;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-bottom: 16px;
+
+  &__price {
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 30px;
+    color: $coin-color;
+    margin-right: 12px;
+  }
+
+  &__change {
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 2.5px;
+  }
+}
