@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, {useEffect, useState} from "react";
 
 import CoinPageStore from "store/CoinPageStore";
 import { useLocalStore } from "utils/useLocalStore";
@@ -9,13 +9,18 @@ import { useParams } from "react-router-dom";
 import CoinInfo from "./components/CoinInfo";
 import Navigation from "./components/Navigation";
 import {Sparklines, SparklinesLine} from "react-sparklines";
-import {price} from "../../../config/_mockCoinGraphData";
-import TimeLine from "./components/TimeLine";
+
 import BtnGroup from "./components/BtnGroup";
-import Card from "../../../components/Card";
+import Card from "components/Card";
+import {price} from "config/_mockCoinGraphData";
 
 const CoinPage = () => {
   const coinPageStore = useLocalStore(() => new CoinPageStore());
+
+  const [graphData, setGraphData] = useState<number[]>(price.slice(price.length / 7 * 6 - 1, price.length - 1));
+  const clickHandler = (price: number[]) => {
+    setGraphData(price);
+  };
 
   const { id } = useParams();
 
@@ -44,7 +49,7 @@ const CoinPage = () => {
       )}
       {coinPageStore.data && (
         <Sparklines
-          data={price.slice(price.length / 7 * 6 - 1, price.length - 1)}
+          data={graphData}
           width={100}
           height={72.267}
           style={{marginBottom: "38px"}}
@@ -52,8 +57,7 @@ const CoinPage = () => {
           <SparklinesLine color="#0063F5" style={{ fill: "none" }} />
         </Sparklines>
       )}
-      <TimeLine />
-      <BtnGroup />
+      <BtnGroup onClick={clickHandler}/>
       <div className={style.transactions}>
         {coinPageStore.data && (
           <Card

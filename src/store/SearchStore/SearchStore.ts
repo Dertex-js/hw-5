@@ -9,15 +9,12 @@ import {
   linearizeCollection,
   normalizeCollection,
 } from "store/models/shared/collection";
-import rootStore from "store/RootStore";
 import axios from "axios";
 import {
   action,
   computed,
-  IReactionDisposer,
   makeObservable,
   observable,
-  reaction,
   runInAction,
 } from "mobx";
 import * as qs from "qs";
@@ -57,19 +54,5 @@ export default class SearchStore {
     return linearizeCollection(this._list);
   }
 
-  destroy() {
-    this._qrReaction();
-  }
-
-  private readonly _qrReaction: IReactionDisposer = reaction(
-    () => rootStore.query.getParam("query"),
-    (search) => {
-      // eslint-disable-next-line no-console
-      console.log(search);
-    }
-  );
-
-  get search() {
-    return this._qrReaction();
-  }
+  destroy() {}
 }

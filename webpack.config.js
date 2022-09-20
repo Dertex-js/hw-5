@@ -33,7 +33,8 @@ module.exports = {
     devtool: isProd ? "hidden-source-map" : "eval-source-map",
     output: {
         path: buildPath,
-        filename: "bundle.js"
+        filename: "bundle.js",
+        publicPath: '/'
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -88,5 +89,6 @@ module.exports = {
         host: "127.0.0.1",
         port: 9000,
         hot: true,
+        historyApiFallback: true,
     }
 }
