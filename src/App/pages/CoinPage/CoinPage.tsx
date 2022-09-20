@@ -8,6 +8,11 @@ import { useParams } from "react-router-dom";
 
 import CoinInfo from "./components/CoinInfo";
 import Navigation from "./components/Navigation";
+import {Sparklines, SparklinesLine} from "react-sparklines";
+import {price} from "../../../config/_mockCoinGraphData";
+import TimeLine from "./components/TimeLine";
+import BtnGroup from "./components/BtnGroup";
+import Card from "../../../components/Card";
 
 const CoinPage = () => {
   const coinPageStore = useLocalStore(() => new CoinPageStore());
@@ -37,6 +42,30 @@ const CoinPage = () => {
           }
         />
       )}
+      {coinPageStore.data && (
+        <Sparklines
+          data={price.slice(price.length / 7 * 6 - 1, price.length - 1)}
+          width={100}
+          height={72.267}
+          style={{marginBottom: "38px"}}
+        >
+          <SparklinesLine color="#0063F5" style={{ fill: "none" }} />
+        </Sparklines>
+      )}
+      <TimeLine />
+      <BtnGroup />
+      <div className={style.transactions}>
+        {coinPageStore.data && (
+          <Card
+            image={coinPageStore.data.image.small}
+            title={coinPageStore.data.name}
+            subtitle={"00.00 " + coinPageStore.data.symbol.toUpperCase()}
+            price={"00.00"}
+            pricePerCent={"00.00"}
+          />
+        )}
+        <div className={style.transactions__card}>Transactions</div>
+      </div>
     </div>
   );
 };

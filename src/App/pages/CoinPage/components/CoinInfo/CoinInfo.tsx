@@ -15,8 +15,6 @@ const CoinInfo: FC<CoinInfoProps> = ({
   const symbolPrice = () => {
     if (priceChangeValue > 0) {
       return "+ ";
-    } else {
-      return "- ";
     }
   };
   const value = priceChangeValue.toFixed(3);

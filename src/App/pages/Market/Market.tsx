@@ -19,6 +19,14 @@ const Market = () => {
     marketStore.requestCoins();
   };
 
+  const colorSparkline = (first: number, end: number): string => {
+    if (end >= first) {
+      return "#21BF73";
+    } else {
+      return "#D90429";
+    }
+  };
+
   return (
     <div className={style.wrapperMarket}>
       <section className={style.title}>
@@ -79,12 +87,16 @@ const Market = () => {
                 graph={
                   <Sparklines
                     data={coin.sparklineIn7d.price.slice(
-                      (coin.sparklineIn7d.price.length / 7) * 6 + 1,
+                      (coin.sparklineIn7d.price.length / 7 * 6) - 1,
                       coin.sparklineIn7d.price.length - 1
                     )}
                     height={120}
                   >
-                    <SparklinesLine color="#21BF73" style={{ fill: "none" }} />
+                    <SparklinesLine
+                      color={colorSparkline(
+                        coin.sparklineIn7d.price[(coin.sparklineIn7d.price.length / 7 * 6) - 1],
+                        coin.sparklineIn7d.price[coin.sparklineIn7d.price.length - 1])}
+                      style={{ fill: "none" }} />
                   </Sparklines>
                 }
               ></Card>

@@ -1,4 +1,27 @@
+@import "scss/colors.scss";
+
 .wrapperCoinPage {
   max-width: 375px;
   margin: 0 auto;
+}
+
+.transactions {
+  padding-right: 16px;
+  padding-left: 16px;
+
+  &__card {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+
+    background-color: $white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.075);
+    border-radius: 8px;
+
+    padding: 16px;
+    font-weight: 450;
+    font-size: 16px;
+    line-height: 20px;
+    color: $coin-color;
+  }
 }

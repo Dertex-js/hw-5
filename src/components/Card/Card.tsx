@@ -32,8 +32,8 @@ const Card: React.FC<CardProps> = ({
       </div>
       <div className={style.coin__graph}>{graph}</div>
       <div className={style.coinPrice}>
-        <div className={style.coinPrice__value}>${price}</div>
-        <div className={style.coinPrice__change}>{pricePerCent}%</div>
+        <div className={style.coinPrice__value}>{price ? "$" + price : ""}</div>
+        <div className={style.coinPrice__change}>{pricePerCent ? pricePerCent + "%" : ""}</div>
       </div>
     </div>
   );

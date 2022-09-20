@@ -16,6 +16,7 @@ export default class CoinPageStore implements ILocalStore {
       _list: observable,
       data: computed,
       requestCoin: action,
+      destroy: action,
     });
   }
 
